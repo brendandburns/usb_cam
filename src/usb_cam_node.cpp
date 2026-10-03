@@ -155,7 +155,8 @@ void UsbCamNode::init()
       this->get_node_services_interface(),
       this->get_node_logging_interface(),
       m_parameters.camera_name,
-      m_parameters.camera_info_url));
+      m_parameters.camera_info_url,
+      rclcpp::QoS(100)));
   // check for default camera info
   if (!m_camera_info->isCalibrated()) {
     m_camera_info->setCameraName(m_parameters.device_name);
